@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>express</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+
+            <!--
+                angular表达式可以写在HTML中
+                angular表达式不支持条件判断，循环及异常
+                angular表达式支持过滤
+            -->
+
+        <div id="app2" ng-init="func2()">
+            <!--数字-->
+            <p ng-init="quantity=1;const = 5">
+                总价为：{{quantity*const}}
+            </p>
+            <p ng-bind="quantity * const"></p>
+            <!--字符串-->
+            <p>{{quantity + "" + const}}</p>
+            <p ng-bind="quantity + '' +const"></p>
+
+            <!--对象-->
+            <div ng-init="person = {
+                   firstName: 'xia' ,
+                   lastName : 'zhiqiang'
+            }"><span>{{person.firstName}}</span></div>
+            <div ng-bind="person.lastName"></div>
+
+
+            <!--数组-->
+            <div ng-init="arr = [11 ,22 , 33 ,44 ,55 ]" >第三个数字：{{arr[2]}}</div>
+            <div >第三个数字：<span ng-bind="arr[2]"></span></div>
+        </div>
+        <script>
+                var app2 = angular.module('app2',[]);
+                angular.bootstrap(document.getElementById('app2'),['app2'])
+        </script>
+</body>
+</html>

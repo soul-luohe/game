@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <!--
+        ng-app指令初始化一个angularjs应用程序
+        ng-init指令初始化应用程序指令
+        ng-model指令把元素的值（比如输入域的值）绑定到应用程序
+    -->
+    <div ng-app="" ng-init="firstName='夏'">
+        <p>在输入框中尝试输入：</p>
+        <p>姓名：<input type="text" ng-model="firstName"/></p>
+        <p>你输入的为：<span ng-bind="firstName"></span></p>
+        <div ng-init="quantity = 1 ;price = 5">
+            <input type=text ng-model="quantity"/><br/>
+            <input type=text ng-model="price"/><br/>
+            <p>总价：<span>{{quantity * price}}</span></p>
+        </div>
+    </div>
+</body>
+</html>

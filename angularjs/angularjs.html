@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angularjs</title>
+    <script src="angular.min.js"></script>
+    <!--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+</head>
+<body>
+    <div ng-app="">
+        <p>名字 : <input type="text" ng-init="name='河海大学'" ng-model="name"></p>
+        <h1>Hello {{name}}</h1>
+    </div>
+    <div id="app2" ng-init="func2()">
+        <p ng-init="schoolName='文天学院'">学校为：<span ng-bind="schoolName"></span></p>
+        <p data-ng-init="name='给水排水'">专业为：<span data-ng-bind="name"></span></p>
+        <p>my first express :{{5 + 5}}</p>
+    </div>
+    <script>
+        var app2 = angular.module('app2',[]);
+        angular.bootstrap(document.getElementById('app2'),['app2'])
+    </script>
+
+
+
+
+
+</body>
+</html>
