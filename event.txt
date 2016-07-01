@@ -1,0 +1,24 @@
+获取父节点，并未它添加一个click事件
+    document.getelementById("parent-list").addEventListener("click" ,function(e){
+	//检查事件源e.targe是否为li
+	if（e.target && e.target.nodeName.toUpperCase == "li"）{
+
+
+	//真正的处理过程
+
+		}
+
+
+
+
+})
+
+e.stopPropagation()(Firefox)   e.cancelBubble = true(IE)阻止事件冒泡
+
+
+jquery提供的事件代理接口的使用方法
+
+	$("#link-list").delegate("a", "click", function(){
+  	// "$(this)" is the node that was clicked
+  	console.log("you clicked a link!",$(this));
+	});

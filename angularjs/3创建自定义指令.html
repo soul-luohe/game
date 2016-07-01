@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建自定义指令</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+
+<!------------------------------------------------------
+        创建自定义指令
+        除了angularJS内置的指令外，我们还可以创建自定义指令
+        可以用directive函数来添加自定义指令
+        要调用自定义指令，HTML元素上需要添加自定义指令名
+        使用驼峰法来命名一个指令，但在使用它时需要以 - 分割
+
+
+        指令可以通过以下几种方式调用
+        元素名
+        属性
+        类名
+        注释
+
+        通过返回restrict属性限制指令通过特定的方式调用(测试与解释不相同，待定)
+        E 只限元素名使用
+        A 只限属性使用
+        C 只限类名使用
+        M 只限注释使用
+--------------------------------------------------------------->
+        <div ng-app="myApp">
+            <runoob-directive></runoob-directive>
+            <div runoob-directive></div>
+            <div runoob-directive></div>
+            <div runoob-directive></div>
+        </div>
+        <script>
+            var app = angular.module("myApp",[]);
+            app.directive("runoobDirective",function () {
+                return {
+                    restrict: "A" ,
+                    template : '<h1>我的毕业院校是河海大学文天学院</h1>'
+                }
+            })
+        </script>
+
+
+</body>
+</html>

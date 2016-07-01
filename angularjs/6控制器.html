@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>controller</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+
+<!--------------------------------------控制器------------------------------------------------------------------------->
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        名：<input type="text" ng-model="lastName">
+        姓：<input type="text" ng-model="firstName">
+        <br/>
+        姓名：{{firstName+''+lastName}}
+    </div>
+
+<!---------------------------------------控制器方法--------------------------------------------------------------------->
+    <div  ng-app="yourApp" id="app2" ng-controller="yourCtrl">
+        firstName : <input ng-model="firstName"><br/>
+        lastName : <input ng-model="lastName"><br/>
+        fullName : {{fullName()}}
+    </div>
+
+
+
+
+    <script>
+        /*--------------------------------------------控制器----------------------------------------------------------*/
+        var app = angular.module("myApp" , []);
+        app.controller('myCtrl',function ($scope) {
+            $scope.firstName= "夏";
+            $scope.lastName = "志强";
+        });
+        /*---------------------------------------------控制器方法------------------------------------------------------*/
+        var app2 = angular.module('yourApp',[]);
+        app2.controller('yourCtrl',function ($scope) {
+            $scope.firstName="河海大学";
+            $scope.lastName='文天学院';
+            $scope.fullName=function () {
+                return  $scope.firstName + "" +$scope.lastName
+            }
+        });
+        angular.bootstrap(document.getElementById('app2'),["yourApp"])
+
+
+
+
+    </script>
+</body>
+</html>

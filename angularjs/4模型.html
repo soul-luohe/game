@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模型</title>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="angular.min.js"></script>
+</head>
+    <style>
+        input.ng-invalid {
+            background: lightblue;
+        }
+    </style>
+
+
+
+<body>
+
+<!----------------ng-model指令可以将输入域的值和AngularJS创建的变量绑定--------------------------------------------------------------->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        名字：<input ng-model="name"/>
+    </div>
+
+    <div id="app2" ng-app="yourApp" ng-controller="yourCtrl">
+        <p>{{name}}</p>
+    </div>
+
+
+
+
+    <div id="app3" ng-app="theirApp" ng-controller="theirCtrl">
+        <!-------------------------------------------------验证用户输入-------------------------------------------------->
+        <form name="myForm">
+            Email:
+            <input  type="email" name="myAddress" ng-model="text" required>
+            <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+            输入你的名字:
+            <input name="myAddress" ng-model="text" required>
+        </form>
+        <!-------------------------------------------------用户输入事件-------------------------------------------------->
+        <form  name="yourForm" ng-init="myEmail='xiazhiqiang@timeface.cn'">
+            Email:<input type="email" name="myAddress" ng-model="myEmail"/>
+            <p>{{yourForm.myAddress.$valid}}</p>//输入的值合法则为true
+            <p>{{yourForm.myAddress.$dirty}}</p>//输入的值改变则为true
+            <p>{{yourForm.myAddress.$touched}}</p>//触屏点击则为true
+        </form>
+
+
+        <!---------------------------------------CSS样式
+                ng-model指令根据表单域的状态添加/移除以下类
+                ng-empty
+                ng-not-empty
+                ng-touched
+                ng-untouched
+                ng-valid
+                ng-invalid
+                ng-dirty
+                ng-pending
+                ng-pristine
+        --------------------------------------------------------------->
+        <form  name="myForm">
+            输入你的名字:
+            <input name="myAddress" ng-model="text" required>
+        </form>
+    </div>
+    <!--------------------------------------------JS文件--------------------------------------------------------------->
+
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl' , function ($scope) {
+            $scope.name = "夏志强"
+        });
+
+        var app2 = angular.module('yourApp', []);
+        app2.controller("yourCtrl",function ($scope) {
+            $scope.name = "xiazhiqiang"
+        });
+
+        angular.bootstrap(document.getElementById("app2"), ["yourApp"]);
+        var app3 = angular.module('theirApp',[]);
+        app3.controller('theirCtrl',function ($scope) {
+            $scope.dogName = "小黄"
+        });
+        angular.bootstrap(document.getElementById("app3"), ["theirApp"]);
+    </script>
+
+
+</body>
+</html>

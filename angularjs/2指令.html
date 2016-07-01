@@ -11,7 +11,12 @@
         ng-init指令初始化应用程序指令
         ng-model指令把元素的值（比如输入域的值）绑定到应用程序
     -->
+
+
+
     <div ng-app="" ng-init="firstName='夏'">
+
+        <!--数据绑定-->
         <p>在输入框中尝试输入：</p>
         <p>姓名：<input type="text" ng-model="firstName"/></p>
         <p>你输入的为：<span ng-bind="firstName"></span></p>
@@ -20,6 +25,43 @@
             <input type=text ng-model="price"/><br/>
             <p>总价：<span>{{quantity * price}}</span></p>
         </div>
+
+        <!--HTML元素循环-->
+        <p ng-init="names = ['小黄','小黑' , '小灰']">使用ng-repeat来循环数组</p>
+        <ul >
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+        <!--ng-repeat用在一个对象数组上-->
+        <p ng-init="persor =[
+            {name :'小黄' ,age:5},
+            { name :'小灰', age:3},
+            {name :'小黑' ,age:2}
+        ]"></p>
+        <ul>
+            <li ng-repeat="j in persor">
+                {{j.name +"," + j.age +"岁"}}
+            </li>
+        </ul>
     </div>
+
+
+<!--------------------------------------------------
+        ng-model指令
+        绑定HTML元素到应用程序；
+        为应用程序数据提供状态
+        为HTML元素提供CSS类
+        绑定HTML元素到HTML表单
+
+        ng-repeat指令
+        对于集合中（数组中）的每个项会克隆一次HTML元素；
+
+
+----------------------------------------------------->
+
+
+
+
 </body>
 </html>

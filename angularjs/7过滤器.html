@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <!----------------------------------------------
+        过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中
+        过滤器可用于转换数据；
+        currency	    格式化数字为货币格式。
+        filter	        从数组项中选择一个子集。
+        lowercase	    格式化字符串为小写。
+        uppercase	    格式化字符串为大写。
+        orderBy	        根据某个表达式排列数组。
+    ----------------------------------------------------------->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>姓名为：{{name|uppercase}}</p>
+        <p>姓名为：{{name|lowercase}}</p>
+        <p>姓名为：{{money|currency}}</p>
+    </div>
+</body>
+    <script src="7过滤器.js"></script>
+</html>
