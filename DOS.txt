@@ -1,0 +1,6 @@
+taskkill 查看pid
+taskkill /f /pid <PID> 终止pid
+dir /b 以紧凑方式显示
+dir > /创建文件或已存在修改覆盖
+dir >> 创建新文件并追加内容
+dir /s 列出包括子文件夹内的文件
